@@ -1091,3 +1091,55 @@ textarea:focus {
   }
 }
 
+@media (max-width: 768px) {
+
+  /* hero layout ko column bana do */
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* image sabse upar */
+  .hero__image {
+    order: -1;
+    margin-bottom: 24px;
+  }
+
+  /* image center me rahe */
+  .profile-ring {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+
+  /* image thodi choti */
+  .profile-ring {
+    width: 200px;   /* pehle se thodi choti */
+    margin-bottom: -12px; /* name ke paas laaye */
+  }
+
+  /* name ka font thoda chota */
+  .hero__name {
+    font-size: 2.2rem;
+    margin-top: 0;     /* image se chipka hua */
+  }
+
+  /* role / typing text next line me aur compact */
+  .hero__title {
+    font-size: 1.1rem;
+    margin-top: 4px;
+  }
+  
+}
+/* ===== STOP IMAGE FLOATING COMPLETELY ===== */
+
+.hero__image,
+.profile-ring,
+.profile-ring img {
+  position: static !important;
+  transform: none !important;
+  animation: none !important;
+  top: auto !important;
+  left: auto !important;
+}
