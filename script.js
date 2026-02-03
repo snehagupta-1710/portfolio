@@ -214,3 +214,10 @@ window.addEventListener("scroll", () => {
   const progress = (scrollTop / docHeight) * 100;
   scrollProgress.style.width = `${progress}%`;
 });
+const hero = document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+  if (window.innerWidth <= 768) {
+    hero.classList.toggle("scrolled", window.scrollY > 10);
+  }
+});

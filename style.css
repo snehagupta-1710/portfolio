@@ -1143,3 +1143,120 @@ textarea:focus {
   top: auto !important;
   left: auto !important;
 }
+/* ================= MOBILE SCROLL HERO FIX ================= */
+@media (max-width: 768px) {
+
+  /* default mobile remains same */
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ROW ONLY FOR IMAGE + NAME + ROLE */
+  .hero.scrolled .hero__content {
+    align-items: stretch;
+  }
+
+  .hero.scrolled .hero__image {
+    order: 1;
+   margin-top:-10px;
+    margin-left:-190px;
+    margin-bottom: -15px;
+  }
+
+  .hero.scrolled .hero__text {
+    order: 2;
+  }
+
+  /* create top row */
+  .hero.scrolled .hero__image,
+  .hero.scrolled .hero__text {
+    display: inline;
+  }
+
+  .hero.scrolled .hero__image {
+    float: left;
+    margin-right: 14px;
+  }
+
+  .hero.scrolled .profile-ring {
+    width: 82px;
+     padding: 6px;
+  }
+
+  .hero.scrolled .hero__greeting{
+    margin-top: -90px;
+     margin-left:0px;
+    
+  }
+  
+
+  .hero.scrolled .hero__name {
+    font-size: 1.4rem;
+    margin-top: -10px;
+    margin-left:65px;
+    margin-bottom: -15px;
+    line-height: 1.2;
+  }
+
+  .hero.scrolled .hero__title {
+    font-size: 0.95rem;
+    margin: 30px 0px 0px 85px;
+  }
+
+  /* everything else BELOW */
+  .hero.scrolled .hero__description,
+  .hero.scrolled .hero__actions,
+  .hero.scrolled .hero__social {
+    clear: both;
+    margin-top: 16px;
+  }
+}
+/* ===== MOBILE SIDEBAR ICON + TEXT LABELS ===== */
+
+@media (max-width: 768px) {
+
+  .sidebar__nav {
+    display: block;           /* NOT flex */
+  }
+
+  .sidebar__link {
+    width: 100%;
+    height: auto;
+    padding: 14px 18px;
+    border-radius: 14px;
+    display: block;
+  }
+
+  .sidebar__link i {
+    font-size: 1.2rem;
+    margin-right: 14px;
+  }
+
+  /* text label beside icon */
+  .sidebar__link::after {
+    content: attr(data-tooltip);
+    position: static;
+    opacity: 1;
+    transform: none;
+    background: transparent;
+    color: var(--color-text);
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-left: 8px;
+  }
+
+  /* align icon + text */
+  .sidebar__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* active / hover state still clean */
+  .sidebar__link.active {
+    background: var(--color-accent-muted);
+    color: var(--color-accent);
+  }
+}
