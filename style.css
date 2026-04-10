@@ -693,25 +693,31 @@ i[class*="fa-"] {
   box-shadow: 0 12px 24px rgba(255, 111, 97, 0.3);
 }
 
+/* ===== PROJECT GRID FIX ===== */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: stretch; /* ensures equal height rows */
 }
 
+/* ===== CARD STRUCTURE FIX ===== */
 .project-card {
   border-radius: 28px;
   overflow: hidden;
   border: 1px solid var(--color-border);
   background: var(--color-bg);
-  display: grid;
+  display: flex;              /* IMPORTANT */
+  flex-direction: column;     /* IMPORTANT */
+  height: 100%;               /* IMPORTANT */
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* ===== IMAGE CONSISTENCY ===== */
 .project-card__image {
-  position: relative;
+  width: 100%;
+  height: 180px;              /* fixed height */
   overflow: hidden;
-  aspect-ratio: 16 / 10;
 }
 
 .project-card__image img {
@@ -721,31 +727,44 @@ i[class*="fa-"] {
   transition: transform 0.4s ease;
 }
 
+/* ===== CONTENT FLEX FIX ===== */
 .project-card__content {
-  padding: 14px;
-  display: grid;
-  gap: 16px;
-}
-.project-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1; /* pushes buttons down */
 }
 
-.project-card:hover img {
-  transform: scale(1.05);
-}
-
-.project-card__meta {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
+/* ===== BUTTON ALIGNMENT FIX ===== */
 .project-card__actions {
   display: flex;
   gap: 12px;
+  margin-top: auto; /* pushes to bottom */
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--color-accent);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.15);
+}
+.project-card__content p {
+  font-size: 0.95rem;
 }
 
+.project-card__content ul {
+  font-size: 0.9rem;
+}
+.project-card__content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (max-width: 576px) {
+  .project-card__image {
+    height: 160px;
+  }
+}
 .achievements {
   display: grid;
   gap: 20px;
