@@ -760,6 +760,11 @@ i[class*="fa-"] {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .achievement-card {
+    padding: 18px;
+  }
+}
 @media (max-width: 576px) {
   .project-card__image {
     height: 160px;
@@ -768,9 +773,13 @@ i[class*="fa-"] {
 .achievements {
   display: grid;
   gap: 20px;
+  padding: 0 8px;
 }
 
 .achievement-card {
+ width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -779,6 +788,7 @@ i[class*="fa-"] {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   transition: transform 0.2s ease, border-color 0.2s ease;
+  margin-left: 0;
 }
 
 .achievement-card i {
@@ -1082,32 +1092,48 @@ textarea:focus {
   }
 }
 
-@media (max-width: 576px) {
-  .hero {
-    min-height: auto;
-  }
+@media (max-width: 768px) {
 
-  .hero__actions {
-    flex-direction: column;
+  .main {
     width: 100%;
+    margin-left: 0;
+    padding: calc(var(--header-height) + 28px) 20px 40px;
   }
 
-  .btn {
-    width: 100%;
+  /* FIX hidden sections */
+  .section {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
-  .projects {
-    grid-template-columns: 1fr;
+  /* FIX hero scroll layout safely */
+  .hero.scrolled .hero__image {
+    margin-left: 0;
+    margin-top: -10px;
+    margin-bottom: -10px;
   }
 
-  .languages {
-    flex-direction: column;
+  .hero.scrolled .profile-ring {
+    width: 82px;
+    padding: 6px;
   }
 
-  .back-to-top {
-    bottom: 18px;
-    right: 18px;
+  .hero.scrolled .hero__name {
+    font-size: 1.4rem;
+    margin-left: 70px;
+    margin-top: -5px;
   }
+
+  .hero.scrolled .hero__title {
+    font-size: 0.95rem;
+    margin-left: 85px;
+  }
+}
+
+/* Prevent overlap */
+.projects {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
