@@ -783,7 +783,7 @@ i[class*="fa-"] {
   display: flex;
   align-items: center;
   gap: 18px;
-  padding: 20px 24px;
+  padding: 20px 6px;
   border-radius: 22px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
